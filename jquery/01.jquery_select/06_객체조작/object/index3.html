@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        div{padding: 10px; margin: 0 0 10px;}
+        .box{border: 3px solid #000;}
+        .alert{border-color: red;}
+    </style>
 </head>
 <body>
     <div id="div1">div1</div>
     <div id="div2" class="box">div2</div>
     <div id="div3" class="box">div3</div>
     <div id="div4" class="box alert">div4</div>
+
+    <script>
+        $(function(){
+            $('#div1').addClass('box');
+            $('#div2').removeClass('box');
+        });
+    </script>
 </body>
 </html>
