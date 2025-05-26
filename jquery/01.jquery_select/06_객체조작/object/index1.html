@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안에 들어있는 텍스트</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="div1">안에 들어있는 텍스트</div>
+    <div id="div2">안에 들어있는 텍스트</div>
+    <div id="div3">안에 들어있는 텍스트</div>
+    <div id="div4">안에 들어있는 텍스트</div>
+
+    <script>
+        $(function(){
+            $('#div1').click(function(){
+                $('#div1').text('text로 내용 변경하기');
+            });
+
+            $('#div2').click(function(){
+                $('#div2').html('html로 내용 변경하기');
+            });
+
+            $('#div3').click(function(){
+                $('#div3').text('<strong>text메소드</strong>내용 변경하기');
+            });
+
+            $('#div4').click(function(){
+                $('#div4').html('<strong>html메소드</strong>내용 변경하기');
+            });
+        })
+    </script>
+</body>
+</html>
