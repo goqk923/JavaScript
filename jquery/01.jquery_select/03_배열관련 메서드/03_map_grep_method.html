@@ -7,7 +7,16 @@
 	<link rel="stylesheet" href="css/style.css"/>
 	<script type="text/javascript">
 		$(function(){
-			
+			let arr1=[{'area':'서울','name':'조지현'},{'area':'부산','name':'김영자'}]
+
+			let arr2=$.map(arr1, function(a, b){
+				if(a.area=='서울'){
+					return a
+				}else{
+					return false;
+				}
+			})
+			console.log(arr2)
 		});
 	</script>
 </head>

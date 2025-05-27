@@ -7,7 +7,12 @@
 	<link rel="stylesheet" href="css/style.css"/>
 	<script type="text/javascript">
 		$(function(){
-			
+			$.each($("#menu1 li"), function(i, o){
+				console.log(i, o)
+			})
+			$.each($("#menu1 li"), function(i, o){
+				console.log(i, o)
+			})
 		});
 	</script>
 </head>
@@ -15,7 +20,7 @@
 	<span>배열에 저장된 요소의 개수만큼 메서드를 반복 실행(매개변수1, 매개변수2에는 배열에 저장된 인덱스값과 요소가 오름차순으로 대입)</span>
 	<div id="wrap">
 		<ul id="menu1">
-			<li>토요일일</li>
+			<li>토요일이</li>
 			<li>자기들이</li>
 			<li>미친듯이</li>
 			<li>놀아놓고</li>

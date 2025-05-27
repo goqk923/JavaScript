@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        p{height: 500px; width: 500px; margin: 0 auto;}
+        .hide{display: none; }
+        .box{width: 1000px; padding: 50px; margin: 20px auto; background: #ddd;}
+        .box1{display: block; width: 300px; height: 200px; background: yellow;}
+        .box2{display: none; width: 300px; height: 200px; background: yellowgreen;}
+        .container{width: 100%; height: 120px; font-size: 5em;}
+        .box3{background: pink; display: none;}
+        .box4{background: rgb(58, 199, 98); display: block;}
+        .box5{background: rgb(196, 162, 14); display: block;}
+        .box6{background: rgb(11, 219, 101); display: block;}
+        .box7{background: rgb(193, 35, 221); display: none;}
+        .ani{position: relative; height:800px;}
+        .rect{
+            padding: 50px;
+            background: yellow;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .rect1{
+            padding: 20px;
+            background: pink;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border-radius: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <p><img src="./img/img.jpg" alt="" class="hide"></p>
+        <button>click</button>
+    </div>
+    <div class="box">
+        <h2>show hide</h2>
+        <div class="box1">처음에 보이지 않은 div</div>
+        <div class="box2">처음부터 보이는 div</div>
+    </div>
+    <div class="box">
+        <h2>fadeInOut</h2>
+        <div class="container"><div class="box3">fadeIn</div></div>
+        <div class="container"><div class="box4">fadeOut</div></div>
+        <div class="container"><div class="box5">fadeTo</div></div>
+    </div>
+    <div class="box">
+        <h2>slideDown/slideUp</h2>
+        <div class="container"><div class="box6">slideDown</div></div>
+        <div class="container"><div class="box7">slideUp</div></div>
+    </div>
+    <div class="box ani">
+        <div class="rect">box</div>
+        <div class="rect1">공</div>
+    </div>
+    <script>
+        $('button').click(function(){
+            $('p').find('img').toggleClass();
+        });
+
+      /*   $('.box1').show();
+        $('.box2').hide(); */
+        $('.box1').hover(function(){
+             $('.box2').show(1000);
+        },function(){
+             $('.box2').hide(1000);
+        })
+
+        $('.box3').fadeIn(3000);
+        $('.box4').fadeOut(3000);
+        $('.box5').fadeTo(5000, .3);
+
+        $('.box6').hover(function(){
+            $('.box7').slideDown(1000)
+        },function(){
+             $('.box7').slideUp(1000)
+        });
+
+        $('.rect').animate({left: 500, top: 500},3000);
+        $('.rect1').delay(1000).animate({bottom:800},1000).animate({right:1000},3000);
+    </script>  
+</body>
+</html>
