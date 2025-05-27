@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini 당구</title>
+  <style>
+    canvas {
+      background-color: green;
+      display: block;
+      margin: 0 auto;
+      border: 10px solid pink;
+    }
+  </style>
+</head>
+<body>
+<canvas id="billiards" width="500" height="700"></canvas>
+
+<script>
+const canvas = document.getElementById('billiards');
+const ctx = canvas.getContext('2d');
+
+const FRICTION = 0.98; // 마찰계수
+const MIN_SPEED = 0.1; // 이 속도보다 작아지면 멈춘 것으로 간주
+
+class Ball {
+  constructor(x, y, color, isCue = false) {
+    this.x = x;
+    this.y = y;
+    this.radius = 10;
+    this.color = color;
+    this.vx = 0;
+    this.vy = 0;
+    this.isCue = isCue;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+
+    // 마찰 적용
+    this.vx *= FRICTION;
+    this.vy *= FRICTION;
+
+    // 너무 느리면 정지
+    if (Math.abs(this.vx) < MIN_SPEED) this.vx = 0;
+    if (Math.abs(this.vy) < MIN_SPEED) this.vy = 0;
+
+    // 벽 반사
+    if (this.x < this.radius || this.x > canvas.width - this.radius) {
+      this.vx *= -1;
+    }
+    if (this.y < this.radius || this.y > canvas.height - this.radius) {
+      this.vy *= -1;
+    }
+
+    this.draw();
+  }
+
+  isMoving() {
+    return Math.abs(this.vx) > 0 || Math.abs(this.vy) > 0;
+  }
+}
+
+// 공들 생성
+const balls = [];
+const cueBall = new Ball(canvas.width / 2, canvas.height - 100, 'white', true);
+balls.push(cueBall);
+
+// 삼각형 배열
+const colors = ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'black'];
+let row = 0;
+const startX = canvas.width / 2;
+const startY = 200;
+for (let i = 0; i < 15;) {
+  row++;
+  for (let j = 0; j < row; j++) {
+    if (i >= 15) break;
+    const x = startX - (row - 1) * 11 + j * 22;
+    const y = startY + row * 19;
+    balls.push(new Ball(x, y, colors[i % colors.length]));
+    i++;
+  }
+}
+
+let isAiming = false;
+let mouse = { x: 0, y: 0 };
+
+// 마우스 입력
+canvas.addEventListener('mousedown', (e) => {
+  if (!balls.some(b => b.isMoving())) {
+    isAiming = true;
+    mouse = getMousePos(e);
+  }
+});
+
+canvas.addEventListener('mouseup', (e) => {
+  if (isAiming) {
+    const release = getMousePos(e);
+    const dx = mouse.x - release.x;
+    const dy = mouse.y - release.y;
+
+    cueBall.vx = dx * 0.1;
+    cueBall.vy = dy * 0.1;
+
+    isAiming = false;
+  }
+});
+
+function getMousePos(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top
+  };
+}
+
+// 애니메이션
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  balls.forEach(ball => ball.update());
+
+  // 에이밍 표시
+  if (isAiming) {
+    ctx.beginPath();
+    ctx.moveTo(cueBall.x, cueBall.y);
+    ctx.lineTo(mouse.x, mouse.y);
+    ctx.strokeStyle = 'white';
+    ctx.stroke();
+  }
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+</body>
+</html>
