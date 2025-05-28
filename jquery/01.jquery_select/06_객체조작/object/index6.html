@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>     </title>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<meta name='Title' content=''>
+<meta name='Keywords' content=''>
+<meta name='Author' content=''>
+<meta name='Publisher' content=''>
+<meta name='Description' content=''>
+<meta name='Author-Date' content=''>
+<meta name='Copyright' content=''>
+
+<!-- 접근성 텍스트(skip) 숨김 -->
+<style>#skip{overflow: hidden; position:absolute; width:0; height:0; line-height:0; text-indent:-9999px;}</style>
+
+<!-- 폰트어썸 -->
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+<!-- 구글폰트 아이콘 -->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0' />
+
+<!-- CSS 리셋 -->
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css'>
+
+<!-- 제이쿼리 3.7 CDN -->
+<script src='https://code.jquery.com/jquery-3.7.0.min.js' crossorigin='anonymous'></script>
+
+<!-- 로컬 CSS -->
+<link rel='stylesheet' href='./css/style.css'/>
+
+<!-- 로컬 js -->
+<script src='./js/script.js' defer></script>
+
+</head>
+<body>
+<!-- 시각장애인 웹 접근성을 위한 skip _ 지우지않아도 됩니다. -->
+
+<ul id='skip'>
+   <li><a href='#header'>헤더 바로가기</a></li>
+   <li><a href='#nav'>메뉴 바로가기</a></li>
+   <li><a href='#content'>내용 바로가기</a></li>
+</ul>
+
+<!-- 공백을 위한 공간입니다. -->
+
+    <div class="box">
+        <h2>value조작</h2>
+        <form action="#">
+            <input type="text" id="input1" size="50" value="텍스트필드입니다">
+            <textarea name="textarea1" id="textarea1">텍스트 영역입니다</textarea>
+            <select name="" id="select1">
+                <option value="city1">서울</option>
+                <option value="city2">대전</option>
+                <option value="city3">종각</option>
+            </select>
+            <select name="" id="select2" multiple>
+                <option value="town1">동구</option>
+                <option value="town2">중구</option>
+                <option value="town3">서구</option>
+            </select>
+        </form>
+    </div>
+    <div class="box">
+        <h2>내용 비우기 empty</h2>
+        <div id="emp">10분후 쉬는 시간</div>
+    </div>
+    <div class="box">
+        <h2>insertAfter/insertBefore</h2>
+        <hr>
+        <div class="insert">
+            <p>우리반 금요일날 단체 투표입니다</p>
+            <p>결석 노노</p>
+            <p>지각 노노</p>
+        </div>
+    </div>
+    <div class="box">
+        <h2>append/prepend</h2>
+        <hr>
+        <div class="append">
+            <div id="basket">basket</div>
+            <div id="apple">apple</div>
+            <div id="banana">banana</div>
+            <div id="orange">orange</div>
+        </div>
+    </div>
+    <div class="box">
+        <h2>이미지 확대</h2>
+        <div class="img">
+            <a href="#"><img src="https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2023/08/23/f605d7bb-1f26-493c-b96b-29a9bccf1e5e.jpg" alt="" width="300"></a>
+        </div>
+    </div>
+    <div class="box">
+        <h2>라인</h2>
+        <div class="line">
+            <div class="topLine"></div>
+            <div class="bottomLine"></div>
+            <div class="leftLine"></div>
+            <div class="rightLine"></div>
+        </div>
+    </div>
+</body>
+</html>

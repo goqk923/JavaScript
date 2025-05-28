@@ -1,0 +1,69 @@
+body{background: #ddd; margin: 50px;}
+.box{width: 100%; padding: 30px; box-sizing: border-box; background: #fff; margin-bottom: 20px;}
+input{padding: 5px;}
+h2{font-size: 18px; margin-bottom: 20px;}
+#emp{border:1px solid #000; padding: 10px;}
+.insert{
+    width: 300px; 
+    height: 500px;
+
+}
+.insert p{ 
+    border:1px solid #ddd;
+    padding: 5px 10px;
+    margin-bottom: 5px
+}
+#basket{padding: 10px; background: brown;}
+#apple{margin: 5px; background: red;}
+#banana{margin: 5px; background: yellow;}
+#orange{margin: 5px; background: orange;}
+
+.img{
+    border: 10px solid #f00;
+    width: 300px;
+    margin: 10px auto;
+    overflow: hidden;
+
+}
+.img img{vertical-align: bottom;}
+
+.line{
+    width: 300px;
+    height: 300px;
+    background: pink;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+}
+.topLine{
+    width: 300px;
+    height: 5px;
+    background: red;
+    position: absolute;
+    left: -100%;
+}
+.bottomLine{
+    width: 300px;
+    height: 5px;
+    background: red;
+    position: absolute;
+    bottom: 0;
+    /* right: -100%; */
+    left: 100%;
+}
+.leftLine{
+    width: 5px;
+    height: 300px;
+    background: red;
+    position: absolute;
+    top: -100%;
+    right: 0;
+}
+.rightLine{
+    width: 5px;
+    height: 300px;
+    background: red;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
