@@ -49,4 +49,74 @@ $(function(){
     }, function(){
         clearInterval(setIn)
     });
+    
+    //그룹이벤트 등록하는 방법1
+    $('.btn1').on("mouseover focus", function(){
+            $('.btn1').css('background','red') 
+    });
+
+    //그룹이벤트 등록하는 방법2
+    $('.btn2').on({"mouseover focus":function(){
+        $('.btn2').css('background','yellow')
+    }});
+
+    //그룹이벤트 등록하는 방법3
+    $('.btn3').on({'mouseover':function(){
+        $(this).css('background','pink')
+    },'focus':function(){
+        $(this).css('background','green')
+    }})
+
+    $('.btn4').on("click",function(e){
+        e.preventDefault();
+
+            $(".txt4").css('background','green')
+    });
+
+    $('.btn5').on("click",function(){
+
+            $(".txt5").css('background','green')
+            return false;
+
+    });
+
+    $('.btn6').on("dblclick",function(){
+
+            $(".txt6").css('background','red')
+
+    });
+
+    $('.hover').hover(function(){
+        $('.hover').text('한나야 잘 잤어? 그만 자고 나랑 놀자')
+    },function(){
+        $('.hover').text('우리나라 대통령은 누가 될가?')
+    });
+
+    $('.mouse').mouseenter(function(){
+        $('.mouse').html('text랑 html랑 차이가 뭘까요?')
+    });
+    $('.mouse').mouseleave(function(){
+        $('.mouse').html('text는 글자로 인지하고 html은 태그로 인지합니다.')
+    });
+
+    $('.focus').focus(function(){
+        $('.focus').addClass('actives')
+        $('.focus').css('outline','none')
+    })
+
+    $('.focus').blur(function(){
+        $('.focus').removeClass('actives')
+        $('.focus').css('outline','none')
+    })
+
+    $('.clickTitle').click(function(){
+        $(this).text('왕 재미있다')
+
+        let img=$('<img>',{
+            src:'https://shop.hansalim.or.kr/im/is/activeDesigner/080601061_content1.jpg',
+            alt:'이미지'
+        })
+
+        $('#imgContainer').append(img);
+    })
 });
