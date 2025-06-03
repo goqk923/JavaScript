@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='./js/lib/jquery-1.12.4.min.js'></script>
+    <style>
+        body, ol, ul {
+           margin: 0;
+           padding: 0;
+        }
+        ol, ul {
+           list-style: none;
+        }
+        a {
+           text-decoration: none;
+        }
+        .clearfix::before, .clearfix::after {
+           content: "";
+           display: block;
+        }
+        .clearfix::after {
+           clear: both;
+        }
+        body {
+           font-family: "Open Sans", sans-serif;
+           font-size: 1em;
+        }
+        nav {
+           font-size: 0.875em;
+        }
+        nav > ul > li {
+           float: left;
+        }
+        nav > ul > li > a {
+           display: block;
+           padding: 10px 40px;
+           font-weight: 600;
+           background-color: #999;
+           color: #fff;
+        }
+        nav ul ul {
+           display: none;
+           position: absolute;
+           -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1);
+           box-shadow: 0 0 2px rgba(0,0,0,.1);
+        }
+        nav ul ul a {
+           display: block;
+           padding: 0 35px 0 40px;
+           line-height: 38px;
+           font-weight: 400;
+           background-color: #fff;
+           color: #666;
+           /* -webkit-transition: all 300ms; *//* changed */
+           /* transition: all 300ms; *//* changed */
+        }
+        nav > ul > li:hover ul {
+           /* display: block; *//* changed */
+        }
+        nav ul ul a:hover,
+        nav ul ul a:focus { /* changed */
+           background-color: #f4f4f4;
+        }
+        .contents {
+           padding: 20px;
+           background-color: #f4f4f4;
+           color: #666;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('.clearfix>ul>li').hover(function(){
+                $(this).find('ul').stop().slideDown(500);
+            }, function(){
+                $(this).find('ul').stop().slideUp(500);
+            });
+
+            $('.clearfix>ul>li').focusin(function(){
+                $(this).find('ul').stop().slideDown(500)
+            });
+            $('.clearfix>ul>li>ul>li:last-child').focusout(function(){
+                $(this).parent('ul').stop().slideUp(500);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+    <nav class="clearfix">
+      <ul>
+         <li>
+            <a href="">1DEPTH</a>
+            <ul>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+            </ul>
+         </li>
+         <li>
+            <a href="">1DEPTH</a>
+            <ul>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+            </ul>
+         </li>
+         <li>
+            <a href="">1DEPTH</a>
+            <ul>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+            </ul>
+         </li>
+         <li>
+            <a href="">1DEPTH</a>
+            <ul>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+            </ul>
+         </li>
+         <li>
+            <a href="">1DEPTH</a>
+            <ul>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+            </ul>
+         </li>
+         <li>
+            <a href="">1DEPTH</a>
+            <ul>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+               <li><a href="">2depth</a></li>
+            </ul>
+         </li>
+      </ul>
+    </nav>
+    <div class="contents">contents</div>
+</div>
+</body>
+</html>

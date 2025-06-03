@@ -1,0 +1,29 @@
+nav>ul{
+    width: 200px;
+    margin: 20px auto;
+}
+nav>ul>li{}
+nav>ul>li>a{
+    display: block;
+    height: 35px;
+    background: #f45151;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin-bottom: 1px;
+    
+}
+nav>ul>li>ul{
+    display: none;
+}
+nav>ul>li>ul>li{
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background: #d79292;
+    margin-bottom: 1px;
+}
+nav>ul>li>ul>li>a{
+    text-decoration: none;
+    color: #fff;
+}
